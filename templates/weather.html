@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Info</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="weather-container">
+    <div class="current-weather">
+      <div class="temperature">{{ temperature }}°C</div>
+      <div class="location-details">
+        <div class="location">{{ area }}</div>
+        <div class="time">{{ time_date }}</div>
+        <div class="condition">{{ condition }}</div>
+      </div>
+    </div>
+    <div class="hourly-forecast">
+      {% for hour in forecast %}
+      <div class="hour">
+        <div class="temp">{{ hour.temp }}C</div>
+        <div class="time">{{ hour.time }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="search"><form method="POST">
+      <input type="text" id="location" name="location" placeholder="Location">
+      <button type="submit"><img src="/static/icon/search.png"></button>
+    </form>
+  </div>
+  </div>
+</body>
+</html>
